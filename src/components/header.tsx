@@ -6,7 +6,7 @@ export const Header = () => {
 
   return (
     <header
-      style={{ backgroundColor: "rgba(13, 10, 75, 0.8)" }}
+      style={{ backgroundColor: "rgba(13, 10, 75, 0.7)" }}
       className="text-white py-3 fixed top-0 left-0 w-full z-50 backdrop-blur-md"
     >
       <nav className="container mx-auto flex items-center justify-between gap-x-12 px-4 md:px-8 relative">
