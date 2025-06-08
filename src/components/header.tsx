@@ -1,19 +1,27 @@
 import { useState } from "react";
+import logo from '../assets/logo/logo_second.png';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-[#0D0A4B] text-white p-4">
-      <nav className="container mx-auto flex justify-between items-center">
-        <div className="text-2xl font-bold">MonLogo</div>
-        
-        {/* Menu desktop */}
-        <ul className="hidden md:flex space-x-6">
-          <li><a href="#accueil" className="hover:underline">Accueil</a></li>
-          <li><a href="#projets" className="hover:underline">Projets</a></li>
-          <li><a href="#about" className="hover:underline">Qui suis-je ?</a></li>
-          <li><a href="#contact" className="hover:underline">Contact</a></li>
+    <header style={{ backgroundColor: 'rgba(13, 10, 75, 0.8)' }} className="text-white p-4 py-8">
+    <nav className="container mx-auto flex items-center relative">
+        {/* Logo */}
+        <div className="absolute left-0">
+        <img
+            src={logo}
+            alt="Mon logo"
+            className="h-20 w-auto"
+        />
+        </div>
+
+  
+        <ul className="hidden md:flex gap-[100px] text-xl mx-auto ml-[25%]">
+          <li><a href="#accueil" className="relative text-white px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100">{'<Accueil/>'}</a></li>
+          <li><a href="#projets" className="relative text-white px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100">{'<A propos de moi/>'}</a></li>
+          <li><a href="#about" className="relative text-white px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100">{'<Projets/>'}</a></li>
+          <li><a href="#contact" className="relative text-white px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100">{'<Contact/>'} </a></li>
         </ul>
 
         {/* Hamburger mobile */}
