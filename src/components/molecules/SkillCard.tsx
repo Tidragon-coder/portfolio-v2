@@ -4,16 +4,19 @@ type SkillCardProps = {
   icon: string;         
   title: string;
   description: string;
+  marginTop?: string;
 };
 
-const SkillCard = ({ icon, title, description }: SkillCardProps) => {
+const SkillCard = ({ icon, title, description, marginTop }: SkillCardProps) => {
   return (
-    <div className="flex flex-col items-center bg-primary p-5 rounded-[10px] w-[150px] shadow-md transition-transform duration-300 ease-in-out cursor-pointer hover:scale-110 hover:bg-[#151078] group">
-    <div dangerouslySetInnerHTML={{ __html: icon }}  />
-    <span className="mt-2 text-lg font-bold text-light-color">{title}</span>
-    <p className="text-sm text-light-color mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 self-center text-center">
+    <div
+      className={`flex flex-col items-center bg-primary p-5 rounded-[10px] w-[180px] shadow-md transition-transform duration-300 ease-in-out cursor-pointer hover:scale-110 hover:bg-[#151078] group ${marginTop ?? ''}`}
+    >
+      <div dangerouslySetInnerHTML={{ __html: icon }} />
+      <span className="mt-2 text-lg font-bold text-light-color">{title}</span>
+      <p className="text-sm text-light-color mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 self-center text-center">
         {description}
-    </p>
+      </p>
     </div>
   );
 };

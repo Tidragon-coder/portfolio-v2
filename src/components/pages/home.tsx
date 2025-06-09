@@ -1,5 +1,6 @@
 import React from 'react';
-import { Header } from '../organisms/header';
+// import { Header } from '../organisms/header';
+// import Footer from '../organisms/footer';   
 
 import Introduc from '../molecules/introduc';
 import AboutMe from '../molecules/aboutme';
@@ -8,14 +9,12 @@ import HardSkills from '../molecules/hardSkill';
 import Experience from '../molecules/experienceSection';
 const Home = () => {
     return (
-    <div>
-        <Header />
+    <div>    
         <Introduc />
         <AboutMe />
         <Projets />
         <HardSkills />
         <Experience />
-
     </div>
     )
 }
