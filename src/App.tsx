@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Button } from './components/atoms/Button';
 import Home from './components/pages/home';
 
 function App() {
   return (
-    <Home/> 
+    <div className='font-fira'>
+      <Home/> 
+
+    </div>
 )}
 
 export default App;

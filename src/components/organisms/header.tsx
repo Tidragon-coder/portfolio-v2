@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/logo/logo_second.png";
+import logo from "../../assets/logo/logo_second.png";
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
@@ -7,54 +7,53 @@ export const Header = () => {
   return (
     <header
       style={{ backgroundColor: "rgba(13, 10, 75, 0.7)" }}
-      className="text-white py-3 fixed top-0 left-0 w-full z-50 backdrop-blur-md"
+      className="text-white py-3 fixed top-0 left-0 w-full z-50 backdrop-blur-md overflow-x-hidden"
     >
-      <nav className="container mx-auto flex items-center justify-between gap-x-12 px-4 md:px-8 relative">
-        {/* Logo */}
-        <div className="flex items-center gap-8 flex-1">
-            <img src={logo} alt="Mon logo" className="h-[60px] w-auto" />
+      <nav className="container mx-auto flex items-center justify-between flex-wrap px-4 md:px-8 relative">
+        {/* Zone gauche : Logo + menu desktop */}
+        <div className="flex items-center justify-between w-full md:w-auto gap-8 flex-1">
+          <img src={logo} alt="Mon logo" className="h-[60px] w-auto" />
 
-            {/* Desktop menu */}
-            <ul className="hidden md:flex gap-[100px] text-[18px] items-center ml-60">
+          {/* Desktop menu */}
+          <ul className="hidden md:flex gap-16 text-[18px] items-center leading-normal flex-1 justify-end">
             <li>
-                <a
+              <a
                 href="#accueil"
                 className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
-                >
+              >
                 {"<Accueil/>"}
-                </a>
+              </a>
             </li>
             <li>
-                <a
+              <a
                 href="#projets"
                 className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
-                >
+              >
                 {"<A propos de moi/>"}
-                </a>
+              </a>
             </li>
             <li>
-                <a
+              <a
                 href="#about"
                 className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
-                >
+              >
                 {"<Projets/>"}
-                </a>
+              </a>
             </li>
             <li>
-                <a
+              <a
                 href="#contact"
                 className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
-                >
+              >
                 {"<Contact/>"}
-                </a>
+              </a>
             </li>
-            </ul>
-
+          </ul>
         </div>
 
         {/* Burger Icon */}
         <button
-          className="md:hidden z-50"
+          className="md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -69,11 +68,7 @@ export const Header = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d={
-                open
-                  ? "M6 18L18 6M6 6l12 12"
-                  : "M4 6h16M4 12h16M4 18h16"
-              }
+              d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
             />
           </svg>
         </button>

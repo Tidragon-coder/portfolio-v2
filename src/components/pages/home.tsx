@@ -1,14 +1,15 @@
 import React from 'react';
-import { Header } from '../header';
-import { Button } from '../atoms/Button';
+import { Header } from '../organisms/header';
+import Introduc from '../molecules/introduc';
+import AboutMe from '../molecules/aboutme';
 const Home = () => {
     return (
-        <div>
-    <Header />
-        <div className="flex items-center justify-center h-screen  pt-[80px]">
-      <Button disabled={false}>Hello guys</Button>
+    <div>
+        <Header />
+        <Introduc />
+        <AboutMe />
+
     </div>
-</div>
     )
 }
 

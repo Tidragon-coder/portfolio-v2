@@ -6,8 +6,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: 'rgb(13, 10, 75)', // Blue foncé
+        secondary: 'rgb(58, 109, 140)', // Bleu clair
+        accent: 'white', // blanc
+      },
       fontFamily: {
-        sans: ['Fira Code', 'monospace'],
+        fira: ['Fira Code', 'monospace'],
       },
     },
   },
