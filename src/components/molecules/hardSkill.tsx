@@ -24,7 +24,7 @@ const HardSkills = () => {
         <SkillCard icon={skillsIcons.java} title="Java" description="Programmation orientée objet" />
         <SkillCard icon={skillsIcons.php} title="PHP" description="Développement back-end" /> 
         <SkillCard icon={skillsIcons.laravel} title="Laravel" description="Framework PHP moderne pour créer des applications web robustes" />
-        <SkillCard icon={skillsIcons.mysql} title="SQL / MySQL" description="Gestion de bases de données" /> 
+        <SkillCard icon={skillsIcons.mysql} title="SQL/MySQL" description="Gestion de bases de données" /> 
       </div>
   </section>
 

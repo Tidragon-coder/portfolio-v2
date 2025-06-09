@@ -5,6 +5,7 @@ import Introduc from '../molecules/introduc';
 import AboutMe from '../molecules/aboutme';
 import Projets from '../molecules/projets';
 import HardSkills from '../molecules/hardSkill';
+import Experience from '../molecules/experienceSection';
 const Home = () => {
     return (
     <div>
@@ -13,6 +14,7 @@ const Home = () => {
         <AboutMe />
         <Projets />
         <HardSkills />
+        <Experience />
 
     </div>
     )
