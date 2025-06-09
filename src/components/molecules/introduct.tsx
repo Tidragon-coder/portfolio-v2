@@ -5,7 +5,7 @@ import profileImage from '../../assets/img/img_Theo2.jpg';
 const Introduct = () => {
   return (
     <section id="accueil" className="min-h-[90vh] flex items-center justify-center px-6 pt-0 mt-8">
-      <div className="flex flex-col md:flex-row items-center justify-between max-w-5xl w-full">
+      <div className="flex flex-col md:flex-row items-center justify-between max-w-5xl w-full .appear ">
         <div className="flex-1 text-left space-y-10 mt-10">
           <h1 className="text-4xl md:text-5xl font-bold">Salut,</h1>
             <h1 className="text-4xl md:text-5xl font-bold">
