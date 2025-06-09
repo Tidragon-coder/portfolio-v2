@@ -14,13 +14,27 @@ body {
 
 @keyframes floating {
   0%, 100% {
-    transform: translateY(0) translateX(0);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px) ;
+    transform: translateY(-10px) ;
   }
 }
 
 .animate-floating {
   animation: floating 4s ease-in-out infinite;
 }
+
+@keyframes floatingX {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px) ;
+  }
+}
+
+.animate-floatingX {
+  animation: floatingX 4s ease-in-out infinite;
+}
+

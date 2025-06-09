@@ -17,7 +17,7 @@ const AboutMe = () => {
         <img
           src={rocketImg}
           alt="Fusée"
-          className="w-32 md:w-40 animate-floating"
+          className="w-32 md:w-40 animate-floatingX"
         />
       </div>
 
@@ -37,7 +37,7 @@ const AboutMe = () => {
             à des projets interactifs, que ce soit lors de mes stages passés ou à travers mon apprentissage en <span className="text-secondary">autodidacte</span>.”
           </p>
         )}
-        <Button onClick={() => setShowMore(!showMore)} className=' text-[12px] px-4 py-2'>
+        <Button size='xs' onClick={() => setShowMore(!showMore)} className=' text-[12px] px-4 py-2'>
           {showMore ? 'Voir moins' : 'Voir plus'}
         </Button>
       </div>
