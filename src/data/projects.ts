@@ -2,11 +2,27 @@ import logoMIMUSS from "../assets/logo/logomimusmini.png";
 import logoElesia from "../assets/logo/elesia.png";
 import logoAida from "../assets/logo/Aida.png";
 
+export type Project = {
+  id: number;
+  slug: string;
+  title: string;
+  logo: string; 
+  shortDescription: string;
+  longDescription: string;
+  image: string; 
+  technologies: string[];
+  github: string;
+  demo: string;
+  doc: string;
+  expected: string[];
+};
+
 export const projects = [
   {
     id: 1,
     slug: "projet-mimuss",
     title: "Mimuss",
+    logo: logoMIMUSS,
     shortDescription:
       "Ce projet fait comme projet de partiel en 2024 consiste à sensibiliser et accompagner les jeunes dans la lutte contre le cyberharcèlement.",
     longDescription:
@@ -28,6 +44,7 @@ export const projects = [
     id: 2,
     slug: "projet-elesia",
     title: "Elesia",
+    logo: logoElesia,
     shortDescription:
       "Durant un stage de 2 mois chez Elesia, j’ai eu l’occasion de travailler sur la gestion des endpoints API de paiement (Avec MVC).",
     longDescription:
@@ -48,6 +65,7 @@ export const projects = [
     id: 3,
     slug: "projet-aida",
     title: "AIDA",
+    logo: logoAida,
     shortDescription:
       "Application d’aide à domicile pour personnes âgées réalisée en binôme dans le cadre d’un projet d’école.",
     longDescription:
@@ -68,6 +86,7 @@ export const projects = [
     id: 4,
     slug: "projet-aida",
     title: "number4",
+    logo: logoAida,
     shortDescription:
       "Application d’aide à domicile pour personnes âgées réalisée en binôme dans le cadre d’un projet d’école.",
     longDescription:

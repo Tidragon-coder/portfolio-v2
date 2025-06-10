@@ -1,15 +1,17 @@
 import React from 'react';
 import Button from '../atoms/Button'; 
 import useScrollAppear from '../../hooks/useScrollAppear';
+import { Link } from 'react-router-dom';
 
 type ProjectCardProps = {
+  slug: string;
   title: string;
   description: string;
   imageSrc: string;
   link: string;
 };
 
-const ProjectCard = ({ title, description, imageSrc, link }: ProjectCardProps) => {
+const ProjectCard = ({ slug, title, description, imageSrc, link }: ProjectCardProps) => {
   const cardRef = useScrollAppear();
   
   return (
@@ -23,7 +25,9 @@ const ProjectCard = ({ title, description, imageSrc, link }: ProjectCardProps) =
         <p className="text-[#F0FBF7] text-base mt-2 text-center ">{description}</p>
         <div className="mt-auto pt-4">
             <a href={link}>
-            <Button size="sm">Voir plus</Button>
+            <Link to={`/projets/${slug}`}>
+              <Button size="sm">Voir plus</Button>
+          </Link>
             </a>
         </div>
         </div>

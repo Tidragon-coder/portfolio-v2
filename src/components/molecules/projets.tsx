@@ -3,6 +3,8 @@ import useScrollAppear from "../../hooks/useScrollAppear";
 import ProjectCard from "../molecules/ProjectCard";
 import { projects } from "../../data/projects";
 
+import Button from "../atoms/Button";
+
 const Projets = () => {
   const sectionRef = useScrollAppear();
 
@@ -23,14 +25,17 @@ const Projets = () => {
       <div className="flex flex-wrap justify-center gap-20">
         {selectedProjects.map((project) => (
           <ProjectCard
-            key={project.id}
+            slug={project.slug}
             title={project.title}
             description={project.shortDescription}
-            imageSrc={project.image}
+            imageSrc={project.logo}
             link={`/${project.slug}`}
           />
         ))}
       </div>
+      <Button size="xs" className="mt-10 mx-auto block" onClick={() => window.location.href = "/projects"}>
+        Voir tous mes projets
+      </Button>
     </section>
   );
 };
