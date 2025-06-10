@@ -2,18 +2,22 @@
 import { useState } from 'react';
 import rocketImg from '../../assets/img/rocket.png';
 import Button from '../atoms/Button';
+import useScrollAppear from '../../hooks/useScrollAppear';
 
 const AboutMe = () => {
   const [showMore, setShowMore] = useState(false);
+  const sectionRef = useScrollAppear();
+  const imgRef = useScrollAppear();
+  const textRef = useScrollAppear();
 
   return (
-<section id="aproposdemoi" className="py-12 px-6">
+<section ref={sectionRef} id="aproposdemoi" className="py-12 px-6 appear">
   <div className="max-w-5xl mx-16">
     <h2 className="text-4xl text-accent font-bold mb-20 ml-[50px] ">À propos de moi</h2>
     
     <div className="flex flex-col md:flex-row items-start gap-[30px]">
       
-      <div className="md:w-1/3 flex justify-center">
+      <div ref={imgRef} className="md:w-1/3 flex justify-center appear">
         <img
           src={rocketImg}
           alt="Fusée"
@@ -21,7 +25,7 @@ const AboutMe = () => {
         />
       </div>
 
-      <div className="md:w-2/3 text-accent text-xl space-y-4 ml-[60px]">
+      <div ref={textRef} className="md:w-2/3 text-accent text-xl space-y-4 ml-[60px] appear">
         <p>
           “J’ai <span className="text-secondary">20 ans</span> et je suis passionné par l’<span className="text-secondary">espace</span>,
           la <span className="text-secondary">science</span> et les <span className="text-secondary">nouvelles technologies</span>.”

@@ -1,3 +1,6 @@
+import React from 'react';
+import useScrollAppear from '../../hooks/useScrollAppear';
+
 type TimelineItemProps = {
   title: string;
   date?: string;
@@ -5,8 +8,11 @@ type TimelineItemProps = {
   missions?: string[];
 };
 
-const TimelineItem = ({ title, date, description, missions }: TimelineItemProps) => (
-  <div className="relative bg-primary p-4 rounded-lg shadow-md ml-[-30px]">
+const TimelineItem = ({ title, date, description, missions }: TimelineItemProps) => {
+  const itemRef = useScrollAppear();
+  
+  return (
+    <div ref={itemRef} className="relative bg-primary p-4 rounded-lg shadow-md ml-[-30px] appear">
     <div className="absolute w-4 h-4 bg-white opacity-70 rounded-full top-2 left-2 z-10" />
 
     <h3 className="text-lg font-semibold ml-2">{title}</h3>
@@ -19,8 +25,9 @@ const TimelineItem = ({ title, date, description, missions }: TimelineItemProps)
         ))}
       </ul>
     )}
-  </div>
-);
+    </div>
+  );
+};
 
 
 export default TimelineItem;

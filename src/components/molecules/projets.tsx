@@ -1,14 +1,16 @@
 import React from "react";
+import useScrollAppear from "../../hooks/useScrollAppear";
 import ProjectCard from "../molecules/ProjectCard";
 
 import logoADFU from "../../assets/logo/ADFU.png";
 import logoAida from "../../assets/logo/Aida.png";
-import logoMimus from "../../assets/logo/logomimusmini.png"; 
 import logoElesia from "../../assets/logo/elesia.png";
 
 const Projets = () => {
+    const sectionRef = useScrollAppear();
+    
     return (
-    <section className="py-10 px-4">
+    <section ref={sectionRef} className="py-10 px-4 appear">
       <h2 className="text-3xl font-bold text-[#F0FBF7] text-center mb-10">
         &lt;Projets/&gt;
       </h2>

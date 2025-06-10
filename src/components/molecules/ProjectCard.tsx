@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../atoms/Button'; 
+import useScrollAppear from '../../hooks/useScrollAppear';
 
 type ProjectCardProps = {
   title: string;
@@ -9,8 +10,10 @@ type ProjectCardProps = {
 };
 
 const ProjectCard = ({ title, description, imageSrc, link }: ProjectCardProps) => {
+  const cardRef = useScrollAppear();
+  
   return (
-      <div className="flex flex-col justify-between items-center bg-[#0B083F] rounded-xl p-5 w-[280px] h-[500px] shadow-lg transition-transform duration-300 hover:-translate-y-1">
+        <div ref={cardRef} className="flex flex-col justify-between items-center bg-[#0B083F] rounded-xl p-5 w-[280px] h-[500px] shadow-lg transition-transform duration-300 hover:-translate-y-1 appear">
         <img
             src={imageSrc}
             alt={`Logo ${title}`}
@@ -23,7 +26,7 @@ const ProjectCard = ({ title, description, imageSrc, link }: ProjectCardProps) =
             <Button size="sm">Voir plus</Button>
             </a>
         </div>
-    </div>
+        </div>
   );
 };
 

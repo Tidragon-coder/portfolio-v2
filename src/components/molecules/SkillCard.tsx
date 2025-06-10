@@ -1,4 +1,5 @@
 import React from 'react';
+import useScrollAppear from '../../hooks/useScrollAppear';
 
 type SkillCardProps = {
   icon: string;         
@@ -8,9 +9,11 @@ type SkillCardProps = {
 };
 
 const SkillCard = ({ icon, title, description, marginTop }: SkillCardProps) => {
+  const cardRef = useScrollAppear();
   return (
     <div
-      className={`flex flex-col items-center bg-primary p-5 rounded-[10px] w-[180px] shadow-md transition-transform duration-300 ease-in-out cursor-pointer hover:scale-110 hover:bg-[#151078] group ${marginTop ?? ''}`}
+      ref={cardRef}
+      className={`flex flex-col items-center bg-primary p-5 rounded-[10px] w-[180px] shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:scale-110 hover:bg-[#151078] group appear ${marginTop ?? ''}`}
     >
       <div dangerouslySetInnerHTML={{ __html: icon }} />
       <span className="mt-2 text-lg font-bold text-light-color">{title}</span>
