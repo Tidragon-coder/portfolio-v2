@@ -1,6 +1,8 @@
 import { useState } from "react";
 import logo from "../../assets/logo/logo_second.png";
 
+import { Link } from "react-router-dom";
+
 export const Header = () => {
   const [open, setOpen] = useState(false);
 
@@ -17,12 +19,12 @@ export const Header = () => {
           {/* Desktop menu */}
           <ul className="hidden md:flex gap-16 text-[18px] items-center leading-normal flex-1 justify-end">
             <li>
-              <a
-                href="#accueil"
+              <Link
+                to="/"
                 className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
               >
                 {"<Accueil/>"}
-              </a>
+              </Link>
             </li>
             <li>
               <a
@@ -33,12 +35,12 @@ export const Header = () => {
               </a>
             </li>
             <li>
-              <a
-                href="#about"
+              <Link
+                to="/projects"
                 className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
               >
                 {"<Projets/>"}
-              </a>
+              </Link>
             </li>
             <li>
               <a
@@ -77,10 +79,10 @@ export const Header = () => {
         {open && (
           <ul className="absolute top-full left-0 w-full bg-[#0D0A4B] flex flex-col items-center md:hidden shadow-md z-40">
             <li className="py-3 w-full text-center border-b border-white/20">
-              <a href="#accueil" onClick={() => setOpen(false)}>Accueil</a>
+              <Link to="/" onClick={() => setOpen(false)}>Accueil</Link>
             </li>
             <li className="py-3 w-full text-center border-b border-white/20">
-              <a href="#projets" onClick={() => setOpen(false)}>Projets</a>
+              <a href="/projects" onClick={() => setOpen(false)}>Projets</a>
             </li>
             <li className="py-3 w-full text-center border-b border-white/20">
               <a href="#about" onClick={() => setOpen(false)}>Qui suis-je ?</a>
@@ -94,3 +96,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;
