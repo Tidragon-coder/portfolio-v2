@@ -28,7 +28,7 @@ export const projects = [
     longDescription:
       "Projet réalisé dans le cadre d’un partiel de 2024 visant à créer une application de sensibilisation contre le cyberharcèlement. Le projet devait inclure des fonctionnalités pédagogiques, une interface intuitive et respecter des contraintes de design imposées.",
     image: logoMIMUSS,
-    technologies: ["React", "Tailwind", "Node.js"],
+    technologies: ["react", "css", "js", "html"],
     github: "https://github.com/tonrepo",
     demo: "https://mimuss.app",
     doc : "",
@@ -48,9 +48,9 @@ export const projects = [
     shortDescription:
       "Durant un stage de 2 mois chez Elesia, j’ai eu l’occasion de travailler sur la gestion des endpoints API de paiement (Avec MVC).",
     longDescription:
-      "Stage de 2 mois en 2024 dans l’entreprise Elesia où j’ai principalement travaillé sur des API de paiement. J’ai utilisé une architecture MVC, mis en place des tests, et collaboré avec une équipe pour améliorer les fonctionnalités de la plateforme.",
+      "Ce projet m'a offert une excellente opportunité de découvrir et d'expérimenter le travail en groupe dans le domaine du développement web. J'ai appris à collaborer efficacement avec une équipe, notamment en utilisant des outils essentiels comme Git et GitHub pour la gestion du code source. Puis, en dehors du code, j'ai pu travailler avec différents acteurs du web, comme des personnes dans le marketing, designer,...",
     image: logoElesia,
-    technologies: ["PHP", "Laravel", "MySQL", "MVC"],
+    technologies: ["html", "css", "js", "laravel", "mysql"],
     github: "",
     demo: "",
     doc : "",
@@ -71,7 +71,7 @@ export const projects = [
     longDescription:
       "AIDA est une application visant à mettre en relation des aidants et des personnes âgées. Le projet a été conçu pour améliorer l’autonomie et la sécurité des personnes âgées tout en facilitant la gestion pour les aidants.",
     image: logoAida,
-    technologies: ["React Native", "TypeScript", "Firebase"],
+    technologies: ["react", "typescript", "js"],
     github: "https://github.com/tonrepo/aida",
     demo: "https://aida.app",
     doc : "",
@@ -92,7 +92,7 @@ export const projects = [
     longDescription:
       "AIDA est une application visant à mettre en relation des aidants et des personnes âgées. Le projet a été conçu pour améliorer l’autonomie et la sécurité des personnes âgées tout en facilitant la gestion pour les aidants.",
     image: logoAida,
-    technologies: ["React Native", "TypeScript", "Firebase"],
+    technologies: ["react", "typescript", "js"],
     github: "https://github.com/tonrepo/aida",
     demo: "https://aida.app",
     doc : "",

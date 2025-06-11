@@ -2,16 +2,25 @@ import { useParams } from "react-router-dom";
 import { projects } from "../../data/projects";
 import ProjectCardPage from "../molecules/projectCardPage";
 
+import Header from "../organisms/header";
+import Footer from "../organisms/footer";
+
 const ProjectPage = () => {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
-    return <div className="text-white p-4">Projet introuvable.</div>;
-  }
+    return (
+      <div>
+      <Header />
+        <div className="text-white text-4xl p-40 mb-12 ">Projet introuvable...</div>
+      <Footer />
+      </div>
+    
+  )}
 
   return (
-    <div className="p-6">
+    <div >
       <ProjectCardPage project={project} />
     </div>
   );

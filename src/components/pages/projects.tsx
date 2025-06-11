@@ -9,7 +9,7 @@ import { projects } from '../../data/projects';
 
 const Projects = () => {
   return (
-    <div className="font-fira">
+    <div >
       <Header />
       <section className="min-h-screen text-white px-6 py-20 mt-20">
         <h1 className="text-4xl font-bold text-center mb-12">Mes Projets</h1>

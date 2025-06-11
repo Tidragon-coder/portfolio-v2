@@ -1,4 +1,8 @@
-import { Project } from "../../data/projects"; // si tu as exporté le type
+import React, { useState } from "react";
+
+import { Project } from "../../data/projects"; 
+import skillsIcons from "../../data/skillsIcons";
+
 import { Link } from "react-router-dom";
 
 import Header from "../organisms/header";
@@ -9,52 +13,95 @@ type Props = {
 };
 
 export const ProjectCardPage = ({ project }: Props) => {
-    
+  const [isExpanded, setIsExpanded] = useState(false);
+  
   return (
-    <div>
+  <div>
     <Header />
-    <section className="flex flex-col md:flex-row bg-[#0D0A4B] text-white rounded-2xl shadow-xl p-6 mb-8 mt-20">
-      <div className="md:w-1/3">
+      <section className=" text-[#F0FBF7] p-8 md:p-12 max-w-5xl mx-auto mt-36 rounded-2xl shadow-2xl">
+      <h2 className="text-4xl font-bold text-center mb-10">&lt;{project.title}/&gt;</h2>
+
+      <div className="flex flex-col items-center mb-8">
         <img
-          src={project.image}
-          alt={project.title}
-          className="rounded-xl w-full"
+          src={project.logo}
+          alt={`Logo du projet ${project.title}`}
+          className="w-40 mb-4"
         />
       </div>
-      <div className="md:w-2/3 mt-4 md:mt-0 md:ml-6">
-        <h3 className="text-2xl font-bold">{project.title}</h3>
-        <p className="mt-2">{project.longDescription}</p>
 
-        <h4 className="mt-4 font-semibold">Attendus :</h4>
-        <ul className="list-disc ml-6 text-sm">
-          {project.expected.map((e, i) => (
-            <li key={i}>{e}</li>
-          ))}
-        </ul>
+      <div className="flex flex-col md:flex-row gap-10 bg-[#3A6D8C] rounded-xl p-6 mb-10">
+        <img
+          src={project.image}
+          alt={`Image du projet ${project.title}`}
+          className="rounded-xl w-full md:w-1/2"
+        />
+        <div className="flex flex-col justify-between w-full md:w-1/2">
+          <div>
+            <p className="text-left text-sm md:text-base">
+              {isExpanded 
+                ? project.longDescription
+                : `${project.longDescription.slice(0, Math.floor(project.longDescription.length * 0.6))}...`
+              }
+            </p>
+            <button 
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="bg-[#0D0A4B] border-2 border-[#3A6D8C] text-white px-4 py-2 mt-4 rounded-lg font-bold hover:bg-[#1b1869] transition w-fit"
+            >
+              {isExpanded ? "Voir moins" : "Voir plus"}
+            </button>
+          </div>
+        </div>
+      </div>
 
-        <h4 className="mt-4 font-semibold">Technologies :</h4>
-        <div className="flex gap-3 mt-2 flex-wrap">
-          {project.technologies.map((tech) => (
-            <img
-              key={tech}
-              src={`/icons/${tech}.svg`}
-              alt={tech}
-              className="h-6"
-              title={tech.toUpperCase()}
-            />
-          ))}
+      <div className="flex flex-col md:flex-row justify-between gap-6">
+        <div className="p-6 rounded-lg shadow-md md:w-1/2">
+          <h3 className="text-xl font-bold uppercase mb-3">Attendus du projet</h3>
+          <p className="text-[#3A6D8C] mb-4">
+            Le projet {project.title} devait répondre à plusieurs exigences :
+          </p>
+          <ul className="space-y-2">
+            {project.expected.map((item, i) => (
+              <li
+                key={i}
+                className="relative pl-6 text-[#4f7c77] before:content-['✔'] before:absolute before:left-0 before:text-[#F0FBF7] before:text-xl"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
 
+          <div className="p-6 md:w-1/2">
+          <h3 className="text-xl font-bold uppercase mb-4">Technologies utilisées :</h3>
+          <div className="flex flex-wrap gap-4 items-center">
+            {project.technologies.map((tech) => {
+              const svgIcon = skillsIcons[tech.toLowerCase()];
+              return svgIcon ? (
+                <div
+                  key={tech}
+                  dangerouslySetInnerHTML={{ 
+                    __html: svgIcon.replace('<svg', '<svg width="60" height="60"')
+                  }}
+                  title={tech}
+                  className="transition-transform hover:scale-110 "
+                />
+              ) : null;
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-10 text-center">
         <Link
-          to={project.slug}
-          className="inline-block mt-4 px-4 py-2 bg-[#4F7C77] text-white rounded-xl hover:bg-opacity-80 transition"
+          to="/projet_elesia"
+          className="inline-block bg-[#3A6D8C] text-white px-6 py-3 rounded-xl hover:bg-[#2d5d70] transition"
         >
-          Voir plus
+          Projet suivant
         </Link>
       </div>
-    </section>
+      </section>
     <Footer />
-    </div>
+  </div>
   );
 };
 
