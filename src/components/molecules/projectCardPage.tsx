@@ -14,6 +14,8 @@ type Props = {
 
 export const ProjectCardPage = ({ project }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isDocLoading, setIsDocLoading] = useState(true);
+  const [docError, setDocError] = useState(false);
   
   return (
   <div>
@@ -91,13 +93,50 @@ export const ProjectCardPage = ({ project }: Props) => {
         </div>
       </div>
 
-      <div className="mt-10 text-center">
-        <Link
-          to="/projet_elesia"
-          className="inline-block bg-[#3A6D8C] text-white px-6 py-3 rounded-xl hover:bg-[#2d5d70] transition"
-        >
-          Projet suivant
-        </Link>
+      <div className="mt-10">
+        {project.doc && (
+          <div className="mb-8">
+            <h3 className="text-xl font-bold uppercase mb-4">Documentation</h3>
+            <div className="w-full bg-white rounded-lg overflow-hidden shadow-lg border border-[#3A6D8C] max-h-[80vh] relative">
+              {isDocLoading && !docError && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100">
+                  <div className="w-12 h-12 mb-4 border-4 border-[#3A6D8C] border-t-transparent rounded-full animate-spin"></div>
+                  <div className="text-[#3A6D8C] font-medium">Chargement du document...</div>
+                </div>
+              )}
+              {docError ? (
+                <div className="flex flex-col items-center justify-center h-[80vh] bg-gray-100">
+                  <div className="text-[#3A6D8C] font-medium mb-2">Impossible de charger le document</div>
+                  <button 
+                    onClick={() => { setDocError(false); setIsDocLoading(true); }}
+                    className="bg-[#3A6D8C] text-white px-4 py-2 rounded-lg hover:bg-[#2d5d70] transition"
+                  >
+                    Réessayer
+                  </button>
+                </div>
+              ) : (
+                <iframe 
+                  src={project.doc}
+                  title={`Documentation du projet ${project.title}`}
+                  className="w-full h-[80vh] border-0"
+                  loading="lazy"
+                  allowFullScreen
+                  onLoad={() => setIsDocLoading(false)}
+                  onError={() => { setDocError(true); setIsDocLoading(false); }}
+                />
+              )}
+            </div>
+          </div>
+        )}
+
+        <div className="text-center">
+          <Link
+            to="/projet_elesia"
+            className="inline-block bg-[#3A6D8C] text-white px-6 py-3 rounded-xl hover:bg-[#2d5d70] transition"
+          >
+            Projet suivant
+          </Link>
+        </div>
       </div>
       </section>
     <Footer />

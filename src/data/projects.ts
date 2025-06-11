@@ -1,6 +1,7 @@
 import logoMIMUSS from "../assets/logo/logomimusmini.png";
 import logoElesia from "../assets/logo/elesia.png";
 import logoAida from "../assets/logo/Aida.png";
+import elesiaDoc from "../assets/pdf/RDS_Elesia.pdf";
 
 export type Project = {
   id: number;
@@ -53,7 +54,7 @@ export const projects = [
     technologies: ["html", "css", "js", "laravel", "mysql"],
     github: "",
     demo: "",
-    doc : "",
+    doc: elesiaDoc,
     expected: [
       "Comprendre et utiliser une architecture MVC",
       "Améliorer des endpoints API",
