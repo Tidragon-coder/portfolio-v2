@@ -9,7 +9,7 @@ const Projets = () => {
   const sectionRef = useScrollAppear();
 
   // IDs des projets à afficher
-  const selectedProjectIds = [1, 3, 2];
+  const selectedProjectIds = [1, 2, 5];
 
   // filtre les projets correspondants
   const selectedProjects = projects.filter((project) =>
