@@ -31,37 +31,37 @@ export const ProjectCardPage = ({ project }: Props) => {
           />
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center gap-8 rounded-xl p-6 mb-10">
-          {project.image ? (
-            <div className="flex flex-col items-center mb-8">
-              <img
-                src={project.image}
-                alt={`Image du projet ${project.title}`}
-                className="rounded-xl w-[480px] h-auto"
-              />
-            </div>
-          ) : (
-            <div className="flex flex-col items-center mb-8">
-              <h3>Aucune ressource visuelle disponible</h3>
-            </div>
-          )}
-          <div className="flex flex-col bg-[#0D0A4B] p-10 md:w-1/2 overflow-auto">
-            <div>
-              <p className="text-xs md:text-base">
-                {isExpanded
-                  ? project.longDescription
-                  : `${project.longDescription.slice(0, Math.floor(project.longDescription.length * 0.6))}...`
-                }
-              </p>
-              <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className=" bg-[#3A6D8C] border-2 border-[#3A6D8C] text-white px-4 py-2 mt-4 rounded-lg font-bold hover:bg-[#1b1869] transition w-fit"
-              >
-                {isExpanded ? "Voir moins" : "Voir plus"}
-              </button>
-            </div>
-          </div>
-        </div>
+<div className="flex flex-col md:flex-row justify-center gap-8 rounded-xl p-6 mb-10">
+  {project.image ? (
+    <div className="flex flex-col items-center justify-center mb-8">
+      <img
+        src={project.image}
+        alt={`Image du projet ${project.title}`}
+        className="rounded-xl w-[480px] h-auto"
+      />
+    </div>
+  ) : (
+    <div className="flex flex-col items-center mb-8">
+      <h3>Aucune ressource visuelle disponible</h3>
+    </div>
+  )}
+  <div className="flex flex-col bg-[#0D0A4B] p-10 md:w-1/2 overflow-auto">
+    <div>
+      <p className="text-xs md:text-base italic">
+        {isExpanded
+          ? project.longDescription
+          : `${project.longDescription.slice(0, Math.floor(project.longDescription.length * 0.6))}...`}
+      </p>
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className=" bg-[#3A6D8C] border-2 border-[#3A6D8C] text-white px-4 py-2 mt-4 rounded-lg font-bold hover:bg-[#1b1869] transition w-fit"
+      >
+        {isExpanded ? "Voir moins" : "Voir plus"}
+      </button>
+    </div>
+  </div>
+</div>
+
 
 
         <div className="flex flex-col md:flex-row justify-between gap-6">

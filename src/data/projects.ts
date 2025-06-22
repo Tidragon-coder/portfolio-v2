@@ -2,10 +2,12 @@ import logoMIMUSS from "../assets/logo/logomimusmini.png";
 import logoElesia from "../assets/logo/elesia.png";
 import logoAida from "../assets/logo/Aida.png";
 import logometeo from "../assets/logo/Meteo.png";
+import logoTheo from "../assets/logo/logo_second.png";
 
 import ImgMeteo from "../assets/img/img_meteo.jpg";
 import ImgMimuss from "../assets/img/img_mimuss.png";
 import ImgElesia from "../assets/img/img_elesia.png";
+import ImfPortfolio from "../assets/img/img_portfolio.png";
 
 import elesiaDoc from "../assets/pdf/RDS_Elesia.pdf";
 import FreshDoc from "../assets/pdf/RDS_Fresh.win.pdf";
@@ -48,7 +50,7 @@ export const projects = [
       "Respecter une charte graphique imposée",
       "Livrer un MVP en 2 semaines avec documentation",
       "Travailler en équipe avec des rôles définis",
-      "Inclure une Bande Dessinée au site web", 
+      "Inclure une Bande Dessinée au site web",
     ]
   },
   {
@@ -126,6 +128,27 @@ export const projects = [
       "L'application météo est un projet que j'ai développé seul en utilisant React Native afin d'approfondir mes compétences en développement mobile. Grâce à l'intégration d'une API dédiée, cette application offre aux utilisateurs des prévisions météorologiques précises sur une période de sept jours. Ce projet m'a permis de me familiariser davantage avec les requêtes API, la gestion des états dans une application mobile, ainsi que l'optimisation des interfaces utilisateur pour une expérience fluide et intuitive. J'ai également utilisé Git pour le versionnage du code, ce qui a facilité le suivi des modifications.",
     image: ImgMeteo,
     technologies: ["react", "js", "typescript"],
+    github: "https://github.com/Tidragon-coder/app_meteo",
+    demo: "",
+    doc: "",
+    expected: [
+      "Concevoir une interface mobile accessible",
+      "Utilisation d'une API pour les données météorologiques",
+      "Coder de façon Atomic",
+      "Récuperation des données du téléphone (Langue, localisation,...)",
+    ]
+  },
+  {
+    id: 6,
+    slug: "portfolio",
+    title: "Mon Portfolio",
+    logo: logoTheo,
+    shortDescription:
+      "Mon portfolio personnel présentant mes projets et compétences réalisé avec des technologies modernes.",
+    longDescription:
+      "Mon portfolio est un projet que j'ai développé pour mettre en avant mes compétences en développement web et mes réalisations. J'ai utilisé React pour créer une interface utilisateur dynamique et attrayante, tout en intégrant des animations. Ce projet m'a permis de me familiariser avec les meilleures pratiques en matière de développement front-end, ainsi que d'expérimenter avec des bibliothèques et des outils modernes en utilisant la structure du code atomique.",
+    image: ImfPortfolio,
+    technologies: ["react", "typescript" ,"git", "github" ],
     github: "https://github.com/Tidragon-coder/app_meteo",
     demo: "",
     doc: "",
