@@ -104,9 +104,9 @@ export const projects = [
     shortDescription:
       "Durant un stage de 2 mois, j’ai eu l’occasion de participer à la création d’une application mobile de paris sportifs.",
     longDescription:
-      "",
+      "Pendant mon stage de 2 mois chez Fresh.win, j'ai eu l'opportunité de participer à la création d'une application mobile de paris sportifs. Ce projet m'a permis de travailler sur une application en React Native avec des APIs internes, en mettant l'accent sur l'accessibilité et la sécurité des utilisateurs. J'ai également contribué à reflexion de la mise en place d'un systemes de succes (achivements) avec toutes les données nécessaires et les fonctionnalités appropriées pour mettre à bien ce projet.",
     image: logoFreshwin,
-    technologies: ["react", "tailwind", "typescript"],
+    technologies: ["react", "typescript", "tailwind"],
     github: "",
     demo: "",
     doc: FreshDoc,
@@ -123,7 +123,7 @@ export const projects = [
     title: "Application météo",
     logo: logometeo,
     shortDescription:
-      "Application météo qui fournit des prévisions et des alertes sur les conditions météorologiques.",
+      "Application météo créer en autodidacte qui fournit des prévisions et des alertes sur les conditions météorologiques.",
     longDescription:
       "L'application météo est un projet que j'ai développé seul en utilisant React Native afin d'approfondir mes compétences en développement mobile. Grâce à l'intégration d'une API dédiée, cette application offre aux utilisateurs des prévisions météorologiques précises sur une période de sept jours. Ce projet m'a permis de me familiariser davantage avec les requêtes API, la gestion des états dans une application mobile, ainsi que l'optimisation des interfaces utilisateur pour une expérience fluide et intuitive. J'ai également utilisé Git pour le versionnage du code, ce qui a facilité le suivi des modifications.",
     image: ImgMeteo,

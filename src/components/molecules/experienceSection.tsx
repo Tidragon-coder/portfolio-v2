@@ -10,8 +10,8 @@ const ExperienceSection = () => (
         title="Stage Développeur full-stack - fresh.win"
         date="Avril 2025 - Juin 2025"
         missions={[
-            "Projet 1",
-            "Projet 2",
+            "Participation au développement front-end d’une application mobile de paris sportifs en React Native, avec TypeScript et Tailwind (NativeWind)",
+            "Intégration d’interfaces dynamiques et modulaires : système de lootbox, notation, tier list, daily claim…",
         ]}
       />
       

@@ -9,7 +9,7 @@ export const Header = () => {
   return (
     <header
       style={{ backgroundColor: "rgba(13, 10, 75, 0.7)" }}
-      className="text-white py-3 fixed top-0 left-0 w-full z-50 backdrop-blur-md overflow-x-hidden"
+      className="text-white py-3 fixed top-0 left-0 w-full z-50 backdrop-blur-md"
     >
       <nav className="container mx-auto flex items-center justify-between flex-wrap px-4 md:px-8 relative">
         {/* Zone gauche : Logo + menu desktop */}
@@ -77,18 +77,18 @@ export const Header = () => {
 
         {/* Mobile menu */}
         {open && (
-          <ul className="absolute top-full left-0 w-full bg-[#0D0A4B] flex flex-col items-center md:hidden shadow-md z-40">
+          <ul className="fixed top-[76px] left-0 w-full bg-[#0D0A4B] flex flex-col items-center md:hidden shadow-md z-50">
             <li className="py-3 w-full text-center border-b border-white/20">
-              <Link to="/" onClick={() => setOpen(false)}>Accueil</Link>
+              <Link to="/" onClick={() => setOpen(false)}>{"<Accueil/>"}</Link>
             </li>
             <li className="py-3 w-full text-center border-b border-white/20">
-              <a href="/projects" onClick={() => setOpen(false)}>Projets</a>
+              <a href="#projets" onClick={() => setOpen(false)}>{"<A propos de moi/>"}</a>
             </li>
             <li className="py-3 w-full text-center border-b border-white/20">
-              <a href="#about" onClick={() => setOpen(false)}>Qui suis-je ?</a>
+              <Link to="/projects" onClick={() => setOpen(false)}>{"<Projets/>"}</Link>
             </li>
             <li className="py-3 w-full text-center">
-              <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+              <a href="#contact" onClick={() => setOpen(false)}>{"<Contact/>"}</a>
             </li>
           </ul>
         )}

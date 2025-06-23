@@ -31,36 +31,36 @@ export const ProjectCardPage = ({ project }: Props) => {
           />
         </div>
 
-<div className="flex flex-col md:flex-row justify-center gap-8 rounded-xl p-6 mb-10">
-  {project.image ? (
-    <div className="flex flex-col items-center justify-center mb-8">
-      <img
-        src={project.image}
-        alt={`Image du projet ${project.title}`}
-        className="rounded-xl w-[480px] h-auto"
-      />
-    </div>
-  ) : (
-    <div className="flex flex-col items-center mb-8">
-      <h3>Aucune ressource visuelle disponible</h3>
-    </div>
-  )}
-  <div className="flex flex-col bg-[#0D0A4B] p-10 md:w-1/2 overflow-auto">
-    <div>
-      <p className="text-xs md:text-base italic">
-        {isExpanded
-          ? project.longDescription
-          : `${project.longDescription.slice(0, Math.floor(project.longDescription.length * 0.6))}...`}
-      </p>
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className=" bg-[#3A6D8C] border-2 border-[#3A6D8C] text-white px-4 py-2 mt-4 rounded-lg font-bold hover:bg-[#1b1869] transition w-fit"
-      >
-        {isExpanded ? "Voir moins" : "Voir plus"}
-      </button>
-    </div>
-  </div>
-</div>
+        <div className="flex flex-col md:flex-row justify-center gap-8 rounded-xl p-6 mb-10">
+          {project.image ? (
+            <div className="flex flex-col items-center justify-center mb-8">
+              <img
+                src={project.image}
+                alt={`Image du projet ${project.title}`}
+                className={project.image.includes("meteo") || project.image.includes("Meteo") ? "rounded-xl w-[180px] h-auto" : "rounded-xl w-[480px] h-auto"}
+              />
+            </div>
+          ) : (
+            <div className="flex flex-col items-center mb-8">
+              <h3>Aucune ressource visuelle disponible</h3>
+            </div>
+          )}
+          <div className="flex flex-col bg-[#0D0A4B] p-10 md:w-1/2 overflow-auto">
+            <div>
+              <p className="text-xs md:text-base italic">
+                {isExpanded
+                  ? project.longDescription
+                  : `${project.longDescription.slice(0, Math.floor(project.longDescription.length * 0.6))}...`}
+              </p>
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className=" bg-[#3A6D8C] border-2 border-[#3A6D8C] text-white px-4 py-2 mt-4 rounded-lg font-bold hover:bg-[#1b1869] transition w-fit"
+              >
+                {isExpanded ? "Voir moins" : "Voir plus"}
+              </button>
+            </div>
+          </div>
+        </div>
 
 
 
@@ -94,10 +94,18 @@ export const ProjectCardPage = ({ project }: Props) => {
                       __html: svgIcon.replace('<svg', '<svg width="60" height="60"')
                     }}
                     title={tech}
-                    className="transition-transform hover:scale-110 "
+                    className="transition-transform hover:scale-110"
                   />
-                ) : null;
+                ) : (
+                  <div
+                    key={tech}
+                    className="flex items-center justify-center "
+                  >
+                    <span className="text-center">{tech}</span>
+                  </div>
+                );
               })}
+
             </div>
             {project.demo && (
               <div className="mt-4">

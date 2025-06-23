@@ -12,7 +12,7 @@ const Projects = () => {
     <div >
       <Header />
       <section className="min-h-screen text-white px-6 py-20 mt-20">
-        <h1 className="text-4xl font-bold text-center mb-12">Mes Projets</h1>
+        <h1 className="text-4xl font-bold text-center mb-12">&lt;Mes Projets/&gt;</h1>
         <div className="flex flex-wrap justify-center gap-10 max-w-screen-xl mx-auto justify-items-center">
           {projects.map((project) => (
             <ProjectCard
