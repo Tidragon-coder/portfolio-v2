@@ -6,7 +6,7 @@ import skillsIcons from '../../data/skillsIcons';
 
 const HardSkills = () => {
   return (
-<div className='px-[200px]'>
+<div className='px-[50px] md:px-[200px]'>
   <h2 className="text-3xl font-bold text-center mb-8 mt-[50px]">{'<Hard Skills/>'}</h2>
   <section className="mb-12">
       <h3 className="text-2xl font-bold text-center mb-8">Dévéloppement</h3>

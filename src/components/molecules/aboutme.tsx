@@ -4,6 +4,8 @@ import rocketImg from '../../assets/img/rocket.png';
 import Button from '../atoms/Button';
 import useScrollAppear from '../../hooks/useScrollAppear';
 
+import CV_Theo from '../../assets/pdf/Theo_Spetebroot_CV.pdf';
+
 const AboutMe = () => {
   const [showMore, setShowMore] = useState(false);
   const sectionRef = useScrollAppear();
@@ -12,7 +14,7 @@ const AboutMe = () => {
 
   return (
 <section ref={sectionRef} id="aproposdemoi" className="py-12 px-6 appear">
-  <div className="max-w-5xl mx-16">
+  <div className="max-w-5xl mx-8 md:mx-16">
     <h2 className="text-4xl text-accent font-bold mb-20 ml-[50px] ">À propos de moi</h2>
     
     <div className="flex flex-col md:flex-row items-start gap-[30px]">
@@ -25,7 +27,7 @@ const AboutMe = () => {
         />
       </div>
 
-      <div ref={textRef} className="md:w-2/3 text-accent text-xl space-y-4 ml-[60px] appear">
+      <div ref={textRef} className="md:w-2/3 text-accent text-xl space-y-4 ml-[30px] appear">
         <p>
           “J’ai <span className="text-secondary">20 ans</span> et je suis passionné par l’<span className="text-secondary">espace</span>,
           la <span className="text-secondary">science</span> et les <span className="text-secondary">nouvelles technologies</span>.”
@@ -49,7 +51,7 @@ const AboutMe = () => {
     </div>
 
     <div className="mt-12 flex justify-center">
-      <a href="assets/images/pdf/Theo_Spetebroot_CV.pdf" target="_blank" rel="noopener noreferrer">
+      <a href={CV_Theo} target="_blank" rel="noopener noreferrer">
         <Button>
           Mon CV en PDF
         </Button>

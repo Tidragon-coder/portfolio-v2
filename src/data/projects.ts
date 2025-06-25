@@ -41,7 +41,7 @@ export const projects = [
       "Projet réalisé dans le cadre d’un partiel de 2024 visant à créer une application de sensibilisation contre le cyberharcèlement. Le projet devait inclure des fonctionnalités pédagogiques, une interface intuitive et respecter des contraintes de design imposées, ce site devait permettre à tous les acteurs du cyberharcèlement de trouver des ressources utiles (comme des liens vers des ressources de soutien, des numéro d'écoute,...) pour lutter contre ce fléau.",
     image: ImgMimuss,
     technologies: ["react", "css", "js", "html"],
-    github: "https://github.com/tonrepo",
+    github: "",
     demo: "",
     doc: "",
     expected: [
@@ -149,7 +149,7 @@ export const projects = [
       "Mon portfolio est un projet que j'ai développé pour mettre en avant mes compétences en développement web et mes réalisations. J'ai utilisé React pour créer une interface utilisateur dynamique et attrayante, tout en intégrant des animations. Ce projet m'a permis de me familiariser avec les meilleures pratiques en matière de développement front-end, ainsi que d'expérimenter avec des bibliothèques et des outils modernes en utilisant la structure du code atomique.",
     image: ImfPortfolio,
     technologies: ["react", "typescript" ,"git", "github" ],
-    github: "https://github.com/Tidragon-coder/app_meteo",
+    github: "https://github.com/Tidragon-coder/portfolio-v2",
     demo: "",
     doc: "",
     expected: [
@@ -160,3 +160,5 @@ export const projects = [
     ]
   },
 ];
+
+export default Project;

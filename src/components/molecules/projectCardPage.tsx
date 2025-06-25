@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Project } from "../../data/projects";
+import  { Project }   from "../../data/projects";
 import skillsIcons from "../../data/skillsIcons";
 
 import { Link } from "react-router-dom";
@@ -16,6 +16,11 @@ export const ProjectCardPage = ({ project }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isDocLoading, setIsDocLoading] = useState(true);
   const [docError, setDocError] = useState(false);
+
+// const currentIndex = project.findIndex((p) => p.id === project.id);
+// const nextIndex = currentIndex + 1;
+// const nextProject = project[nextIndex];
+// const nextProjectSlug = nextProject ? nextProject.slug : null;
 
   return (
     <div>
@@ -115,6 +120,14 @@ export const ProjectCardPage = ({ project }: Props) => {
                 </a>
               </div>
             )}
+            {project.github && (
+              <div className="mt-4">
+                <h3 className="text-lg font-bold mt-4">Lien vers le GitHub :</h3>
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                  {project.title} - GitHub
+                </a>
+              </div>
+            )}
 
           </div>
         </div>
@@ -157,10 +170,10 @@ export const ProjectCardPage = ({ project }: Props) => {
 
           <div className="text-center">
             <Link
-              to="/projet_elesia"
+              to="/projects"
               className="inline-block bg-[#3A6D8C] text-white px-6 py-3 rounded-xl hover:bg-[#2d5d70] transition"
             >
-              Projet suivant
+              &larr; Retour aux projets
             </Link>
           </div>
         </div>
