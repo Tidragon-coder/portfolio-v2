@@ -6,22 +6,22 @@ import './App.css';
 import Home from './components/pages/home';
 import Projects from './components/pages/projects';
 import ProjectPage from './components/molecules/ProjetPage';
+import Contact from './components/pages/contact';
 
 function App() {
   return (
     <div className='font-fira'>
-      
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={<Navigate to="/" />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projets/:slug" element={<ProjectPage />} />
-      </Routes>
-    </BrowserRouter>
-      
-
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projets/:slug" element={<ProjectPage />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-)}
+  );
+}
 
 export default App;

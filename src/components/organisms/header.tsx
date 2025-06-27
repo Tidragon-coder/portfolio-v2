@@ -43,12 +43,12 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
               >
                 {"<Contact/>"}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
