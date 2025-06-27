@@ -127,7 +127,7 @@ export const projects = [
     longDescription:
       "L'application météo est un projet que j'ai développé seul en utilisant React Native afin d'approfondir mes compétences en développement mobile. Grâce à l'intégration d'une API dédiée, cette application offre aux utilisateurs des prévisions météorologiques précises sur une période de sept jours. Ce projet m'a permis de me familiariser davantage avec les requêtes API, la gestion des états dans une application mobile, ainsi que l'optimisation des interfaces utilisateur pour une expérience fluide et intuitive. J'ai également utilisé Git pour le versionnage du code, ce qui a facilité le suivi des modifications.",
     image: ImgMeteo,
-    technologies: ["react", "js", "typescript"],
+    technologies: ["react", "js", "typescript", "git", "github"],
     github: "https://github.com/Tidragon-coder/app_meteo",
     demo: "",
     doc: "",

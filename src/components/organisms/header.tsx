@@ -1,11 +1,29 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/logo_second.png";
 
 import { Link } from "react-router-dom";
 
+
+
 export const Header = () => {
   const [open, setOpen] = useState(false);
-
+  const navigate = useNavigate();
+  const scrollToHash = (hash: string) => {
+    setTimeout(() => {
+      const id = hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 400);
+  }
+  
+  const goToProjets = () => {
+    navigate("/home");
+    scrollToHash("#aproposdemoi");
+  };
+  
   return (
     <header
       style={{ backgroundColor: "rgba(13, 10, 75, 0.7)" }}
@@ -27,12 +45,12 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="#projets"
+              <button
+                onClick={goToProjets}
                 className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
               >
                 {"<A propos de moi/>"}
-              </a>
+              </button>
             </li>
             <li>
               <Link
@@ -88,7 +106,7 @@ export const Header = () => {
               <Link to="/projects" onClick={() => setOpen(false)}>{"<Projets/>"}</Link>
             </li>
             <li className="py-3 w-full text-center">
-              <a href="#contact" onClick={() => setOpen(false)}>{"<Contact/>"}</a>
+              <Link to="/contact" onClick={() => setOpen(false)}>{"<Contact/>"}</Link>
             </li>
           </ul>
         )}

@@ -1,6 +1,7 @@
 // src/components/ui/molecules/Introduct.tsx
 import Button from '../atoms/Button';
 import profileImage from '../../assets/img/img_Theo2.jpg';
+import { Link } from 'react-router-dom';
 
 const Introduct = () => {
   return (
@@ -18,9 +19,9 @@ const Introduct = () => {
 
 
           <div className="flex justify-start mt-6">
-            <a href="#contact">
+            <Link to="/contact" className="inline-block">
               <Button className='mt-4'>Me Contacter</Button>
-            </a>
+            </Link>
           </div>
         </div>
 

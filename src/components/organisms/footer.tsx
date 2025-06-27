@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../assets/logo/logo_second.png';
 
 import skillsIcons from '../../data/skillsIcons';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentDate = new Date();
@@ -21,10 +22,9 @@ const Footer = () => {
 
         <nav>
           <ul className="flex flex-wrap justify-center gap-5">
-            <li><a href="index.php" className="hover:text-[#3A6D8C] transition-colors">Accueil</a></li>
-            <li><a href="index.php#projets" className="hover:text-[#3A6D8C] transition-colors">Projets</a></li>
-            <li><a href="index.php#aproposdemoi" className="hover:text-[#3A6D8C] transition-colors">À propos de moi</a></li>
-            <li><a href="contact.php" className="hover:text-[#3A6D8C] transition-colors">Contact</a></li>
+            <li><Link to="/home" className="hover:text-[#3A6D8C] transition-colors">Accueil</Link></li>
+            <li><Link to="/projects" className="hover:text-[#3A6D8C] transition-colors">Projets</Link></li>
+            <li><Link to="/contact" className="hover:text-[#3A6D8C] transition-colors">Contact</Link></li>
           </ul>
         </nav>
 
@@ -49,9 +49,7 @@ const Footer = () => {
         <div className="w-full border-t border-[#3A6D8C] pt-4 text-xs">
           <p className="mb-1">
             © {month}/{year} Théo Spetebroot - Tous droits réservés -{' '}
-            <a href="politique.php" className="underline text-[#F0FBF7] hover:text-[#3A6D8C] transition-colors">
-              Politique de Confidentialité
-            </a>
+            <Link to="/politique" className="text-[#3A6D8C] hover:underline">Politique de confidentialité</Link>
           </p>
         </div>
       </div>
