@@ -17,7 +17,7 @@ const SkillCard = ({ icon, title, description, marginTop }: SkillCardProps) => {
   return (
     <div
       ref={cardRef}
-      className={`flex flex-col items-center bg-primary p-5 rounded-[10px] w-[140px] md:w-[180px] shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:scale-110 hover:bg-[#151078] group appear ${marginTop ?? ''}`}
+      className={`flex flex-col items-center bg-primary p-5 rounded-[10px] w-[120px] md:w-[180px] shadow-md transition-all duration-300 ease-in-out cursor-pointer hover:scale-110 hover:bg-[#151078] group appear ${marginTop ?? ''}`}
     >
       <div dangerouslySetInnerHTML={{ __html: modifiedIcon }} />
       <span className="mt-2 text-lg font-bold text-light-color">{title}</span>
