@@ -7,6 +7,19 @@ const ExperienceSection = () => (
     <div className="relative max-w-xl mx-auto pl-8 border-l-4 border-secondary space-y-6">
 
       <TimelineItem
+        title="Alternance Développeur Web - Yuccan.app - SaaS"
+        date="Septembre 2025 - Aujourd'hui"
+        description="Développement et maintenance d’applications web pour une plateforme SaaS de parrainage et de recommandation client, en environnement professionnel."
+        missions={[
+          "Traitement de tickets via GitLab : correction de bugs et développement de nouvelles fonctionnalités",
+          "Développement back-end en Python avec Django (logique métier, API, maintenance)",
+          "Développement front-end en JavaScript, HTML et Svelte",
+          "Analyse et compréhension d’une base de code existante afin d’implémenter des évolutions fiables",
+          "Collaboration avec l’équipe technique et respect des bonnes pratiques de développement",
+        ]}
+      />
+
+      <TimelineItem
         title="Stage Développeur full-stack - fresh.win"
         date="Avril 2025 - Juin 2025"
         missions={[

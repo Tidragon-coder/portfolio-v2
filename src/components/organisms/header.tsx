@@ -100,7 +100,16 @@ export const Header = () => {
               <Link to="/" onClick={() => setOpen(false)}>{"<Accueil/>"}</Link>
             </li>
             <li className="py-3 w-full text-center border-b border-white/20">
-              <a href="#projets" onClick={() => setOpen(false)}>{"<A propos de moi/>"}</a>
+              <button
+                onClick={() => {
+                  goToProjets();
+                  setOpen(false);
+                }}
+                className="w-full text-center py-3"
+                style={{ background: "none", border: "none", color: "inherit", cursor: "pointer" }}
+              >
+                {"<A propos de moi/>"}
+              </button>
             </li>
             <li className="py-3 w-full text-center border-b border-white/20">
               <Link to="/projects" onClick={() => setOpen(false)}>{"<Projets/>"}</Link>
