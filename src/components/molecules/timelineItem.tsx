@@ -3,29 +3,39 @@ import useScrollAppear from '../../hooks/useScrollAppear';
 
 type TimelineItemProps = {
   title: string;
+  organization?: string;
   date?: string;
   description?: string;
   missions?: string[];
+  current?: boolean;
 };
 
-const TimelineItem = ({ title, date, description, missions }: TimelineItemProps) => {
-  const itemRef = useScrollAppear();
-  
-  return (
-    <div ref={itemRef} className="relative bg-primary p-4 rounded-lg shadow-md ml-[-30px] appear">
-    <div className="absolute w-4 h-4 bg-white opacity-70 rounded-full top-2 left-2 z-10" />
+const TimelineItem = ({ title, organization, date, description, missions, current }: TimelineItemProps) => {
+  const itemRef = useScrollAppear<HTMLLIElement>();
 
-    <h3 className="text-lg font-semibold ml-2">{title}</h3>
-    {date && <p className="text-sm opacity-80 ml-2">{date}</p>}
-    {description && <p className="text-sm mt-2 ml-2">{description}</p>}
-    {missions && (
-      <ul className="list-disc ml-6 mt-2 space-y-1">
-        {missions.map((item, i) => (
-          <li key={i} className="text-sm">{item}</li>
-        ))}
-      </ul>
-    )}
-    </div>
+  return (
+    <li ref={itemRef} className="relative pl-8 appear">
+      {/* Pastille posée sur la ligne de la timeline */}
+      <span
+        className={`absolute -left-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-highlight ${
+          current ? 'bg-highlight shadow-[0_0_12px_rgba(156,195,220,0.8)]' : 'bg-primary'
+        }`}
+      />
+
+      {date && <p className="text-xs uppercase tracking-widest text-highlight">{date}</p>}
+      <h3 className="mt-1 text-lg font-semibold text-white">{title}</h3>
+      {organization && <p className="text-white/60">{organization}</p>}
+      {description && <p className="mt-3 text-sm leading-relaxed text-white/75">{description}</p>}
+      {missions && (
+        <ul className="mt-3 space-y-2">
+          {missions.map((item, i) => (
+            <li key={i} className="relative pl-4 text-sm leading-relaxed text-white/75 before:content-['▹'] before:absolute before:left-0 before:text-highlight">
+              {item}
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
   );
 };
 

@@ -1,72 +1,77 @@
 import TimelineItem from '../molecules/timelineItem';
+import SectionTitle from '../atoms/SectionTitle';
 
 const ExperienceSection = () => (
-  <section className="text-offwhite font-sans my-12 px-4">
-    <h2 className="text-4xl text-center mb-10">&lt;Mon expérience/&gt;</h2>
+  <section className="py-20 px-6">
+    <div className="max-w-6xl mx-auto">
+      <SectionTitle title="Parcours" />
 
-    <div className="relative max-w-xl mx-auto pl-8 border-l-4 border-secondary space-y-6">
+      <div className="grid lg:grid-cols-5 gap-12">
+        <div className="lg:col-span-3">
+          <h3 className="text-sm uppercase tracking-widest text-white/60 mb-8">Expérience</h3>
+          <ol className="relative border-l-2 border-secondary/50 ml-2 space-y-10">
+            <TimelineItem
+              current
+              title="Développeur Full-Stack · Alternance"
+              organization="Yuccan"
+              date="Septembre 2025 - Aujourd'hui"
+              description="Développement sur une plateforme SaaS de parrainage et de recommandation client, son application mobile et ses outils internes."
+              missions={[
+                "Prise en charge des tickets de bout en bout (fonctionnalités, correctifs, améliorations) : cadrage en COPIL, développement, tests, revue de code et livraison",
+                "Développement back-end en Python / Django et d’endpoints API pour l’application mobile Yuccan",
+                "Développement front-end en Svelte sur l’outil interne Yuccan Statistique",
+                "Seul développeur sur l’application de Fromagers de France, client historique de Yuccan",
+              ]}
+            />
 
-      <TimelineItem
-        title="Alternance Développeur Web - Yuccan.app - SaaS"
-        date="Septembre 2025 - Aujourd'hui"
-        description="Développement et maintenance d’applications web pour une plateforme SaaS de parrainage et de recommandation client, en environnement professionnel."
-        missions={[
-          "Traitement de tickets via GitLab : correction de bugs et développement de nouvelles fonctionnalités",
-          "Développement back-end en Python avec Django (logique métier, API, maintenance)",
-          "Développement front-end en JavaScript, HTML et Svelte",
-          "Analyse et compréhension d’une base de code existante afin d’implémenter des évolutions fiables",
-          "Collaboration avec l’équipe technique et respect des bonnes pratiques de développement",
-        ]}
-      />
+            <TimelineItem
+              title="Stage Développement Full-Stack"
+              organization="Fresh.win"
+              date="Avril - Juin 2025"
+              missions={[
+                "Développement front-end de l’application mobile en React Native / TypeScript, avec des composants réutilisables (atomic design)",
+                "Fonctionnalités dynamiques : lootbox, notation, daily claim, suivi des paris (en cours, gagné, perdu)",
+                "Participation à la conception des API REST (Node.js / Express) et aux choix d’architecture",
+                "Une branche par feature, documentation, sprints sous Trello",
+              ]}
+            />
 
-      <TimelineItem
-        title="Stage Développeur full-stack - fresh.win"
-        date="Avril 2025 - Juin 2025"
-        missions={[
-            "Participation au développement front-end d’une application mobile de paris sportifs en React Native, avec TypeScript et Tailwind (NativeWind)",
-            "Intégration d’interfaces dynamiques et modulaires : système de lootbox, notation, tier list, daily claim…",
-        ]}
-      />
-      
-      <TimelineItem
-        title="My Digital School Paris"  
-        date="2023-2026"
-        description='Bachelor Développement Web'
-      />
+            <TimelineItem
+              title="Stage Développement Back-end"
+              organization="Elesia"
+              date="Avril - Juin 2024"
+              missions={[
+                "Développement d’une API REST de paiement en Java / Spring Boot : endpoint de transactions, DTOs, mapping entités, services et contrôleurs",
+                "Connexion à MySQL, création des tables et gestion des erreurs de connexion",
+              ]}
+            />
+          </ol>
+        </div>
 
-      <TimelineItem
-        title="Création de Site WEB - Autodidacte"
-        date="2020 - Aujourd’hui"
-        description="Passionné par le développement web, je conçois et développe des sites en front-end avec HTML, CSS et JavaScript. Cet apprentissage autonome m’a permis d’acquérir de solides compétences en intégration web, design d’interface et optimisation des performances."
-      />
+        <div className="lg:col-span-2">
+          <h3 className="text-sm uppercase tracking-widest text-white/60 mb-8">Formation</h3>
+          <ol className="relative border-l-2 border-secondary/50 ml-2 space-y-10">
+            <TimelineItem
+              current
+              title="MBA Développeur Full Stack · Alternance"
+              organization="MyDigital School Paris"
+              date="2026 - 2028"
+            />
 
-      <TimelineItem
-        title="CDD employé polyvalent"
-        date="Octobre - Décembre 2024"
-        description="Depuis début octobre, je travaille en contrat étudiant à 'Party’Jump' dans un trampoline park, dans lequel je fais de l’encaissement, de la surveillance et de l’événementiel."
-      />
+            <TimelineItem
+              title="Bachelor Développement Web"
+              organization="MyDigital School Paris"
+              date="2023 - 2026"
+            />
 
-      <TimelineItem
-        title="Stage Développement Back - Elenox"
-        date="Avril - Juin 2024"
-        missions={[
-          "Développement d’une API de paiement",
-          "Création d’un endpoint POST /paiement/{id}/cb pour gérer les transactions.",
-          "Implémentation des DTOs et mapping entre entités, services et contrôleurs.",
-          "Connexion à une base de données MySQL",
-          "Configuration de spring.datasource.url et gestion des erreurs de connexion.",
-          "Création et gestion des tables avec SQL.",
-          "Mise en place d’un service de paiement",
-          "Développement de PaiementService pour récupérer et traiter les paiements.",
-          "Utilisation de @PathVariable pour extraire les paramètres d’URL."
-        ]}
-      />
-
-      <TimelineItem
-        title="Lycée de la Mare Carré"
-        date='2021 - 2023'
-        description="Baccalauréat STI2D option S.I.N (Systèmes d'Information Numérique)"
-      />
+            <TimelineItem
+              title="Bac STI2D, option SIN"
+              organization="Lycée de la Mare Carrée"
+              date="2021 - 2023"
+            />
+          </ol>
+        </div>
+      </div>
     </div>
   </section>
 );
