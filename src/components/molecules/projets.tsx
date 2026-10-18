@@ -1,15 +1,14 @@
 import React from "react";
-import useScrollAppear from "../../hooks/useScrollAppear";
+import { Link } from "react-router-dom";
 import ProjectCard from "../molecules/ProjectCard";
 import { projects } from "../../data/projects";
 
-import Button from "../atoms/Button";
+import { buttonClasses } from "../atoms/Button";
+import SectionTitle from "../atoms/SectionTitle";
 
 const Projets = () => {
-  const sectionRef = useScrollAppear();
-
   // IDs des projets à afficher
-  const selectedProjectIds = [1, 2, 5];
+  const selectedProjectIds = [7, 8, 4];
 
   // filtre les projets correspondants
   const selectedProjects = projects.filter((project) =>
@@ -17,25 +16,22 @@ const Projets = () => {
   );
 
   return (
-    <section ref={sectionRef} className="py-10 px-4 appear">
-      <h2 className="text-3xl font-bold text-[#F0FBF7] text-center mb-10">
-        &lt;Projets/&gt;
-      </h2>
+    <section className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <SectionTitle title="Projets" subtitle="Une sélection de mes projets récents, en entreprise et en personnel." />
 
-      <div className="flex flex-wrap justify-center gap-20">
-        {selectedProjects.map((project) => (
-          <ProjectCard
-            slug={project.slug}
-            title={project.title}
-            description={project.shortDescription}
-            imageSrc={project.logo}
-            link={`/${project.slug}`}
-          />
-        ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {selectedProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link to="/projects" className={buttonClasses("outline")}>
+            Voir tous mes projets
+          </Link>
+        </div>
       </div>
-      <Button size="xs" className="mt-10 mx-auto block" onClick={() => window.location.href = "/projects"}>
-        Voir tous mes projets
-      </Button>
     </section>
   );
 };
