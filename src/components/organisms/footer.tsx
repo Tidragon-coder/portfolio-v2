@@ -1,57 +1,64 @@
 import React from 'react';
 import logo from '../../assets/logo/logo_second.png';
 
-import skillsIcons from '../../data/skillsIcons';
 import { Link } from 'react-router-dom';
 
+const socialLinks = [
+  {
+    href: 'https://github.com/Tidragon-coder',
+    label: 'GitHub',
+    path: 'M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2',
+  },
+  {
+    href: 'https://www.linkedin.com/in/th%C3%A9o-spetebroot/',
+    label: 'LinkedIn',
+    path: 'M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z',
+  },
+  {
+    href: 'mailto:theo.spetebroot@gmail.com',
+    label: 'Email',
+    path: 'M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7l8-5V6l-8 5l-8-5v2z',
+  },
+];
+
 const Footer = () => {
-  const currentDate = new Date();
-  const month = currentDate.getMonth() + 1;
-  const year = currentDate.getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0D0A4B] text-[#F0FBF7] py-8 text-center text-sm mt-12">
-      <div className="flex flex-col items-center gap-4 px-4">
-        <div className="w-[120px] mb-4">
-          <img
-            src={logo}
-            alt="Logo"
-            className="w-full h-auto"
-          />
-        </div>
+    <footer className="mt-12 border-t border-white/10 bg-primary/80 backdrop-blur text-[#F0FBF7] text-sm">
+      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+        <Link to="/" aria-label="Accueil">
+          <img src={logo} alt="Logo Théo Spetebroot" className="h-12 w-auto" />
+        </Link>
 
         <nav>
-          <ul className="flex flex-wrap justify-center gap-5">
-            <li><Link to="/home" className="hover:text-[#3A6D8C] transition-colors">Accueil</Link></li>
-            <li><Link to="/projects" className="hover:text-[#3A6D8C] transition-colors">Projets</Link></li>
-            <li><Link to="/contact" className="hover:text-[#3A6D8C] transition-colors">Contact</Link></li>
+          <ul className="flex flex-wrap justify-center gap-8">
+            <li><Link to="/" className="text-white/70 hover:text-highlight transition-colors">Accueil</Link></li>
+            <li><Link to="/projects" className="text-white/70 hover:text-highlight transition-colors">Projets</Link></li>
+            <li><Link to="/contact" className="text-white/70 hover:text-highlight transition-colors">Contact</Link></li>
           </ul>
         </nav>
 
-        <div className="flex gap-4">
-          <a href="https://github.com/Tidragon-coder" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path fill="#F0FBF7" d="M7.024 2.31a9 9 0 0 1 2.125 1.046A11.4 11.4 0 0 1 12 3c.993 0 1.951.124 2.849.355a9 9 0 0 1 2.124-1.045c.697-.237 1.69-.621 2.28.032c.4.444.5 1.188.571 1.756c.08.634.099 1.46-.111 2.28C20.516 7.415 21 8.652 21 10c0 2.042-1.106 3.815-2.743 5.043a9.5 9.5 0 0 1-2.59 1.356c.214.49.333 1.032.333 1.601v3a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-.991c-.955.117-1.756.013-2.437-.276c-.712-.302-1.208-.77-1.581-1.218c-.354-.424-.74-1.38-1.298-1.566a1 1 0 0 1 .632-1.898c.666.222 1.1.702 1.397 1.088c.48.62.87 1.43 1.63 1.753c.313.133.772.22 1.49.122L8 17.98a4 4 0 0 1 .333-1.581a9.5 9.5 0 0 1-2.59-1.356C4.106 13.815 3 12.043 3 10c0-1.346.483-2.582 1.284-3.618c-.21-.82-.192-1.648-.112-2.283l.005-.038c.073-.582.158-1.267.566-1.719c.59-.653 1.584-.268 2.28-.031Z"/>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/th%C3%A9o-spetebroot/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path fill="#F0FBF7" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/>
-            </svg>
-          </a>
-          <a href="mailto:theo.spetebroot@gmail.com" className="hover:scale-110 transition-transform">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20">
-              <path fill="#F0FBF7" d="M14.608 12.172c0 .84.239 1.175.864 1.175c1.393 0 2.28-1.775 2.28-4.727c0-4.512-3.288-6.672-7.393-6.672c-4.223 0-8.064 2.832-8.064 8.184c0 5.112 3.36 7.896 8.52 7.896c1.752 0 2.928-.192 4.727-.792l.386 1.607c-1.776.577-3.674.744-5.137.744c-6.768 0-10.393-3.72-10.393-9.456c0-5.784 4.201-9.72 9.985-9.72c6.024 0 9.215 3.6 9.215 8.016c0 3.744-1.175 6.6-4.871 6.6c-1.681 0-2.784-.672-2.928-2.161c-.432 1.656-1.584 2.161-3.145 2.161c-2.088 0-3.84-1.609-3.84-4.848c0-3.264 1.537-5.28 4.297-5.28c1.464 0 2.376.576 2.782 1.488l.697-1.272h2.016v7.057z"/>
-            </svg>
-          </a>
+        <div className="flex gap-5">
+          {socialLinks.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              aria-label={social.label}
+              {...(social.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              className="text-white/70 hover:text-highlight transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                <path fill="currentColor" d={social.path} />
+              </svg>
+            </a>
+          ))}
         </div>
+      </div>
 
-        <div className="w-full border-t border-[#3A6D8C] pt-4 text-xs">
-          <p className="mb-1">
-            © {month}/{year} Théo Spetebroot - Tous droits réservés -{' '}
-            <Link to="/politique" className="text-[#3A6D8C] hover:underline">Politique de confidentialité</Link>
-          </p>
-        </div>
+      <div className="border-t border-white/10 py-5 text-center text-xs text-white/50">
+        © {year} Théo Spetebroot - Tous droits réservés -{' '}
+        <Link to="/politique" className="text-highlight/80 hover:text-highlight hover:underline">Politique de confidentialité</Link>
       </div>
     </footer>
   );

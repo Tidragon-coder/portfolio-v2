@@ -1,81 +1,58 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo/logo_second.png";
 
-import { Link } from "react-router-dom";
-
-
+const navLinks = [
+  { to: "/", label: "Accueil" },
+  { to: "/#aproposdemoi", label: "À propos" },
+  { to: "/projects", label: "Projets" },
+  { to: "/contact", label: "Contact" },
+];
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
-  const scrollToHash = (hash: string) => {
-    setTimeout(() => {
-      const id = hash.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 400);
-  }
-  
-  const goToProjets = () => {
-    navigate("/home");
-    scrollToHash("#aproposdemoi");
-  };
-  
-  return (
-    <header
-      style={{ backgroundColor: "rgba(13, 10, 75, 0.7)" }}
-      className="text-white py-3 fixed top-0 left-0 w-full z-50 backdrop-blur-md"
-    >
-      <nav className="container mx-auto flex items-center justify-between flex-wrap px-4 md:px-8 relative">
-        {/* Zone gauche : Logo + menu desktop */}
-        <div className="flex items-center justify-between w-full md:w-auto gap-8 flex-1">
-          <img src={logo} alt="Mon logo" className="h-[60px] w-auto" />
+  const { pathname, hash } = useLocation();
 
-          {/* Desktop menu */}
-          <ul className="hidden md:flex gap-16 text-[18px] items-center leading-normal flex-1 justify-end">
-            <li>
+  // ScrollToTop se charge du scroll vers l'ancre de "À propos"
+  const isActive = (to: string) => {
+    if (to === "/") return pathname === "/" && !hash;
+    if (to.startsWith("/#")) return pathname === "/" && hash === to.slice(1);
+    if (to === "/projects") return pathname.startsWith("/projects") || pathname.startsWith("/projets");
+    return pathname === to;
+  };
+
+  return (
+    <header className="text-white py-3 fixed top-0 left-0 w-full z-50 bg-primary/70 backdrop-blur-md border-b border-white/10">
+      <nav className="max-w-6xl mx-auto flex items-center justify-between px-6">
+        <Link to="/" aria-label="Accueil">
+          <img src={logo} alt="Logo Théo Spetebroot" className="h-12 w-auto" />
+        </Link>
+
+        {/* Desktop menu */}
+        <ul className="hidden md:flex gap-10 items-center">
+          {navLinks.map((link) => (
+            <li key={link.to}>
               <Link
-                to="/"
-                className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
+                to={link.to}
+                className={`relative py-1 transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-highlight after:transition-transform after:duration-300 ${
+                  isActive(link.to)
+                    ? "text-highlight after:scale-x-100"
+                    : "text-white/80 hover:text-white after:scale-x-0 hover:after:scale-x-100"
+                }`}
               >
-                {"<Accueil/>"}
+                {`<${link.label}/>`}
               </Link>
             </li>
-            <li>
-              <button
-                onClick={goToProjets}
-                className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
-              >
-                {"<A propos de moi/>"}
-              </button>
-            </li>
-            <li>
-              <Link
-                to="/projects"
-                className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
-              >
-                {"<Projets/>"}
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                className="relative px-2 py-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-[#4F7C77] after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
-              >
-                {"<Contact/>"}
-              </Link>
-            </li>
-          </ul>
-        </div>
+          ))}
+        </ul>
 
         {/* Burger Icon */}
         <button
+          type="button"
           className="md:hidden"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={open}
         >
           <svg
             className="w-7 h-7"
@@ -92,34 +69,24 @@ export const Header = () => {
             />
           </svg>
         </button>
-
-        {/* Mobile menu */}
-        {open && (
-          <ul className="fixed top-[76px] left-0 w-full bg-[#0D0A4B] flex flex-col items-center md:hidden shadow-md z-50">
-            <li className="py-3 w-full text-center border-b border-white/20">
-              <Link to="/" onClick={() => setOpen(false)}>{"<Accueil/>"}</Link>
-            </li>
-            <li className="py-3 w-full text-center border-b border-white/20">
-              <button
-                onClick={() => {
-                  goToProjets();
-                  setOpen(false);
-                }}
-                className="w-full text-center py-3"
-                style={{ background: "none", border: "none", color: "inherit", cursor: "pointer" }}
-              >
-                {"<A propos de moi/>"}
-              </button>
-            </li>
-            <li className="py-3 w-full text-center border-b border-white/20">
-              <Link to="/projects" onClick={() => setOpen(false)}>{"<Projets/>"}</Link>
-            </li>
-            <li className="py-3 w-full text-center">
-              <Link to="/contact" onClick={() => setOpen(false)}>{"<Contact/>"}</Link>
-            </li>
-          </ul>
-        )}
       </nav>
+
+      {/* Mobile menu */}
+      {open && (
+        <ul className="md:hidden mt-3 border-t border-white/10 flex flex-col items-center">
+          {navLinks.map((link) => (
+            <li key={link.to} className="w-full text-center border-b border-white/10 last:border-b-0">
+              <Link
+                to={link.to}
+                onClick={() => setOpen(false)}
+                className={`block py-4 ${isActive(link.to) ? "text-highlight" : "text-white/80"}`}
+              >
+                {`<${link.label}/>`}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </header>
   );
 };
