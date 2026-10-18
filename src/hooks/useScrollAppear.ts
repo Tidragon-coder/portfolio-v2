@@ -5,19 +5,17 @@ interface UseScrollAppearProps {
   rootMargin?: string;
 }
 
-const useScrollAppear = ({ threshold = 0.2, rootMargin = "0px" }: UseScrollAppearProps = {}): RefObject<HTMLDivElement | null> => {
-  const elementRef = useRef<HTMLDivElement>(null);
+const useScrollAppear = <T extends HTMLElement = HTMLDivElement>({ threshold = 0.2, rootMargin = "0px" }: UseScrollAppearProps = {}): RefObject<T | null> => {
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.target instanceof HTMLElement) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            } else {
-              entry.target.classList.remove('visible');
-            }
+          // Une fois apparu, l'élément reste visible
+          if (entry.target instanceof HTMLElement && entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
           }
         });
       },
