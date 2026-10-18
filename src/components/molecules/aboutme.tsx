@@ -1,66 +1,79 @@
 // src/components/ui/molecules/AboutMe.tsx
-import { useState } from 'react';
 import rocketImg from '../../assets/img/rocket.png';
-import Button from '../atoms/Button';
+import { buttonClasses } from '../atoms/Button';
+import SectionTitle from '../atoms/SectionTitle';
 import useScrollAppear from '../../hooks/useScrollAppear';
 
 import CV_Theo from '../../assets/pdf/Theo_Spetebroot_CV.pdf';
 
+const facts = [
+  { label: 'Poste', value: 'Développeur Full-Stack en alternance chez Yuccan' },
+  { label: 'Formation', value: 'MBA Développeur Full Stack, MyDigital School Paris' },
+  { label: 'Localisation', value: 'Seine-et-Marne (77)' },
+  { label: 'Langues', value: 'Français natif · Anglais B1' },
+];
+
+const interests = ['Intelligence artificielle & LLM', 'Nouvelles technologies', 'Astronomie', 'Aviation'];
+
 const AboutMe = () => {
-  const [showMore, setShowMore] = useState(false);
   const sectionRef = useScrollAppear();
-  const imgRef = useScrollAppear();
-  const textRef = useScrollAppear();
 
   return (
-<section ref={sectionRef} id="aproposdemoi" className="py-12 px-6 appear">
-  <div className="max-w-5xl mx-8 md:mx-16">
-    <h2 className="text-4xl text-accent font-bold mb-20 ml-[50px] ">À propos de moi</h2>
-    
-    <div className="flex flex-col md:flex-row items-start gap-[30px]">
-      
-      <div ref={imgRef} className="md:w-1/3 flex justify-center appear">
-        <img
-          src={rocketImg}
-          alt="Fusée"
-          className="w-32 md:w-40 animate-floatingX"
-        />
+    <section ref={sectionRef} id="aproposdemoi" className="scroll-mt-24 py-20 px-6 appear">
+      <div className="max-w-6xl mx-auto">
+        <SectionTitle title="À propos" />
+
+        <div className="grid md:grid-cols-5 gap-10 items-start">
+          <div className="md:col-span-3 space-y-5 text-lg leading-relaxed text-white/80">
+            <p>
+              Je suis <span className="text-highlight">développeur full-stack</span> en alternance chez <span className="text-highlight">Yuccan</span>,
+              où je gère les tickets de bout en bout, du <span className="text-highlight">COPIL</span> à la <span className="text-highlight">livraison</span>,
+              avec une attention particulière aux <span className="text-highlight">tests</span> et à la <span className="text-highlight">revue de code</span>.
+            </p>
+            <p>
+              Ma stack principale est <span className="text-highlight">Python / Django</span>, et je suis à l’aise en <span className="text-highlight">React / TypeScript</span>.
+              En parallèle, je poursuis un <span className="text-highlight">MBA Développeur Full Stack</span> à MyDigital School Paris.
+            </p>
+            <p>
+              Passionné par l’<span className="text-highlight">intelligence artificielle</span>, je fais tourner des <span className="text-highlight">LLM open source</span> en
+              local et vise une <span className="text-highlight">certification IA</span>.
+            </p>
+
+            <ul className="flex flex-wrap gap-3 pt-2">
+              {interests.map((interest) => (
+                <li key={interest} className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-white/80">
+                  {interest}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2 relative rounded-2xl border border-white/10 bg-surface/80 backdrop-blur p-8">
+            <img
+              src={rocketImg}
+              alt=""
+              className="absolute -top-10 -right-4 w-20 animate-floatingX"
+            />
+            <dl className="space-y-5">
+              {facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt className="text-xs uppercase tracking-widest text-highlight">{fact.label}</dt>
+                  <dd className="mt-1 text-white">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <a
+              href={CV_Theo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${buttonClasses('primary')} w-full mt-8`}
+            >
+              Télécharger mon CV
+            </a>
+          </div>
+        </div>
       </div>
-
-      <div ref={textRef} className="md:w-2/3 text-accent text-xl space-y-4 ml-[30px] appear">
-        <p>
-          “J’ai <span className="text-secondary">20 ans</span> et je suis passionné par l’<span className="text-secondary">espace</span>,
-          la <span className="text-secondary">science</span> et les <span className="text-secondary">nouvelles technologies</span>.”
-        </p>
-        <p>
-          Curieux et toujours à la recherche de <span className="text-secondary">nouvelles découvertes</span>, j’aime comprendre
-          le fonctionnement des choses, que ce soit à travers l’<span className="text-secondary">astronomie</span>, la <span className="text-secondary">physique</span> ou le <span className="text-secondary">développement informatique</span>.
-        </p>
-        {showMore && (
-          <p>
-            Développeur web, j’apprécie particulièrement la <span className="text-secondary">création de systèmes</span>. J’aime
-            concevoir des interfaces et travailler avec des <span className="text-secondary">bases de données</span> pour donner vie
-            à des projets interactifs, que ce soit lors de mes stages passés ou à travers mon apprentissage en <span className="text-secondary">autodidacte</span>.”
-          </p>
-        )}
-        <Button size='xs' onClick={() => setShowMore(!showMore)} className=' text-[12px] px-4 py-2'>
-          {showMore ? 'Voir moins' : 'Voir plus'}
-        </Button>
-      </div>
-
-    </div>
-
-    <div className="mt-12 flex justify-center">
-      <a href={CV_Theo} target="_blank" rel="noopener noreferrer">
-        <Button>
-          Mon CV en PDF
-        </Button>
-      </a>
-    </div>
-    
-  </div>
-</section>
-
+    </section>
   );
 };
 
