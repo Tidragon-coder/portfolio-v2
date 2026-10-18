@@ -1,4 +1,5 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { buttonClasses } from "../atoms/Button";
 import { projects } from "../../data/projects";
 import ProjectCardPage from "../molecules/projectCardPage";
 
@@ -13,10 +14,15 @@ const ProjectPage = () => {
     return (
       <div>
       <Header />
-        <div className="text-white text-4xl p-40 mb-12 ">Projet introuvable...</div>
+        <div className="min-h-[70vh] flex flex-col items-center justify-center gap-6 px-6 pt-32 text-center">
+          <p className="text-3xl md:text-4xl font-bold">Projet introuvable...</p>
+          <Link to="/projects" className={buttonClasses("outline")}>
+            &larr; Retour aux projets
+          </Link>
+        </div>
       <Footer />
       </div>
-    
+
   )}
 
   return (
