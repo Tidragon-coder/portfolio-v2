@@ -5,10 +5,12 @@ import ProjectCardPage from "../molecules/projectCardPage";
 
 import Header from "../organisms/header";
 import Footer from "../organisms/footer";
+import usePageTitle from "../../hooks/usePageTitle";
 
 const ProjectPage = () => {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
+  usePageTitle(project ? project.title : "Projet introuvable");
 
   if (!project) {
     return (

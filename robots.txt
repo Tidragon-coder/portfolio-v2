@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /politique
-
-Sitemap: https://votresite.com/sitemap.xml

@@ -8,8 +8,10 @@ import Experience from '../molecules/experienceSection';
 
 import Header from '../organisms/header';
 import Footer from '../organisms/footer';
+import usePageTitle from '../../hooks/usePageTitle';
 
 const Home = () => {
+    usePageTitle();
 
     return (
     <div>

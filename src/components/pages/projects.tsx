@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from '../organisms/header';
 import Footer from '../organisms/footer';
+import usePageTitle from '../../hooks/usePageTitle';
 
 import ProjectCard from '../molecules/ProjectCard';
 import SectionTitle from '../atoms/SectionTitle';
@@ -9,6 +10,7 @@ import SectionTitle from '../atoms/SectionTitle';
 import { projects } from '../../data/projects';
 
 const Projects = () => {
+  usePageTitle('Projets');
   const currentProjects = projects.filter((project) => !project.archived);
   const archivedProjects = projects.filter((project) => project.archived);
 

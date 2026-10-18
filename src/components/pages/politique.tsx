@@ -2,8 +2,10 @@ import React from "react";
 
 import Header from '../organisms/header';
 import Footer from '../organisms/footer';
+import usePageTitle from '../../hooks/usePageTitle';
 
 export default function PolitiqueConfidentialite() {
+  usePageTitle('Politique de confidentialité');
   return (
     <>
       <Header />
